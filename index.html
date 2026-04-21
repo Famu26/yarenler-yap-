@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yarenler Ticaret ve Yapı — Güven ve Kalitenin Adresi</title>
+<link rel="icon" type="image/png" href="uploads/logo-1776770621428.png">
+<link rel="apple-touch-icon" href="uploads/logo-1776770621428.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D2744;
+    --navy-dark: #091c33;
+    --navy-mid: #163252;
+    --red: #E0302A;
+    --red-dark: #b82420;
+    --blue: #3A7BD5;
+    --blue-light: #5a9de8;
+    --white: #F8FAFC;
+    --gray: #8A9BB0;
+    --gray-light: #EEF2F7;
+    --text: #1a2d45;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(9, 28, 51, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 96px;
+    transition: all 0.3s;
+  }
+
+  nav.scrolled {
+    height: 80px;
+    background: rgba(9, 28, 51, 0.99);
+  }
+
+  .nav-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-brand-sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+  }
+
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+
+  .lang-toggle {
+    display: flex; gap: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 3px;
+  }
+
+  .lang-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    color: rgba(255,255,255,0.6);
+    background: transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .lang-btn.active {
+    background: var(--red);
+    color: #fff;
+  }
+
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+
+  .nav-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 4px;
+    height: 100%;
+    padding-bottom: 0;
+  }
+
+  .nav-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: -2px;
+  }
+
+  .nav-phone {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .whatsapp-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: #25D366;
+    color: #fff;
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+
+  .whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy-dark);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(58,123,213,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(224,48,42,0.10) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(58,123,213,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(58,123,213,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 5vw;
+    max-width: 760px;
+    margin-top: 72px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(224,48,42,0.15);
+    border: 1px solid rgba(224,48,42,0.35);
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero-badge span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title .accent-red { color: var(--red); }
+  .hero-title .accent-blue { color: var(--blue-light); }
+
+  .hero-slogan {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px;
+    margin-bottom: 44px;
+  }
+
+  .hero-stat { text-align: left; }
+
+  .hero-stat .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px; font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-stat .num span { color: var(--red); }
+
+  .hero-stat .label {
+    font-size: 12px; font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.12);
+    align-self: stretch;
+  }
+
+  .hero-cta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--red);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.25s;
+    border: 2px solid var(--red);
+  }
+
+  .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: all 0.25s;
+  }
+
+  .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: absolute; right: 0; top: 0; bottom: 0;
+    width: 45%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .hero-cards {
+    position: relative; width: 380px; height: 420px;
+  }
+
+  .hero-card {
+    position: absolute;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 12px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-card-1 { width: 200px; top: 30px; left: 0; }
+  .hero-card-2 { width: 220px; top: 100px; right: 0; border-color: rgba(58,123,213,0.3); }
+  .hero-card-3 { width: 180px; bottom: 40px; left: 40px; border-color: rgba(224,48,42,0.3); }
+
+  .hero-card-icon {
+    font-size: 28px; margin-bottom: 12px;
+  }
+
+  .hero-card h4 {
+    font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 90px 5vw; }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--red);
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 46px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* ─── ABOUT ─── */
+  #hakkimizda {
+    background: var(--gray-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hakkimizda::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(58,123,213,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .about-img-box {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: var(--navy);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+
+  .about-img-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        rgba(58,123,213,0.06) 0px,
+        rgba(58,123,213,0.06) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+  }
+
+  .about-img-label {
+    position: relative; z-index: 2;
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(224,48,42,0.35);
+  }
+
+  .about-badge .big { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 900; line-height: 1; }
+  .about-badge .small { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85; margin-top: 4px; }
+
+  .about-features {
+    margin-top: 36px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .about-feature {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px 20px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 3px solid var(--blue);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .about-feature:hover { transform: translateX(4px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+  .about-feature-icon {
+    font-size: 22px; flex-shrink: 0; margin-top: 2px;
+  }
+
+  .about-feature h4 {
+    font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px;
+  }
+
+  .about-feature p {
+    font-size: 13px; color: var(--gray); line-height: 1.5;
+  }
+
+  /* ─── PRODUCTS ─── */
+  #urunler { background: #fff; }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 52px;
+  }
+
+  .product-card {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .product-card:hover { border-color: rgba(58,123,213,0.15); background: #fff; box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
+  .product-card:hover::before { transform: scaleX(1); }
+
+  .product-icon-wrap {
+    width: 58px; height: 58px;
+    border-radius: 12px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .product-card h3 {
+    font-size: 17px; font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .product-card p {
+    font-size: 14px; color: var(--gray); line-height: 1.6;
+  }
+
+  .product-card .product-num {
+    position: absolute; bottom: 20px; right: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px; font-weight: 900;
+    color: rgba(13,39,68,0.05);
+    line-height: 1;
+  }
+
+  /* ─── BRANDS ─── */
+  #markalar {
+    background: var(--navy-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #markalar .section-title { color: #fff; }
+
+  #markalar .section-sub { color: rgba(255,255,255,0.5); }
+
+  .brands-divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--blue));
+    margin: 24px 0 52px;
+  }
+
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .brand-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brand-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.18);
+    transform: translateY(-4px);
+  }
+
+  .brand-logo-area {
+    height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  /* Vitra */
+  .brand-vitra .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px; font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-vitra .logo-text em {
+    color: #0098d4;
+    font-style: normal;
+  }
+
+  /* QUA */
+  .brand-qua .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px; font-weight: 900;
+    color: #e8272d;
+    letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.95);
+    padding: 8px 18px;
+    border-radius: 6px;
+  }
+
+  /* Filli Boya */
+  .brand-filli .logo-wrap {
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .brand-filli .logo-filli {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px; font-weight: 900;
+    color: #f47920;
+    letter-spacing: 0.03em;
+  }
+
+  .brand-filli .logo-boya {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Nippon */
+  .brand-nippon .logo-wrap {
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .brand-nippon .logo-circle {
+    width: 36px; height: 36px;
+    background: #e8272d;
+    border-radius: 50%;
+  }
+
+  .brand-nippon .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px; font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+
+  .brand-nippon .logo-text small {
+    display: block;
+    font-size: 9px; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* Fırat */
+  .brand-firat .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px; font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.06em;
+    border-bottom: 3px solid #3A7BD5;
+    padding-bottom: 4px;
+  }
+
+  .brand-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 8px;
+  }
+
+  .brand-badge {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 6px;
+    border-radius: 4px;
+  }
+
+  /* ─── CONTACT ─── */
+  #iletisim {
+    background: var(--gray-light);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 52px;
+    align-items: start;
+  }
+
+  .contact-info-cards {
+    display: flex; flex-direction: column; gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .contact-info-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex; gap: 18px; align-items: flex-start;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--red);
+  }
+
+  .contact-info-icon {
+    width: 42px; height: 42px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contact-info-card h4 {
+    font-size: 12px; font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+
+  .contact-info-card p, .contact-info-card a {
+    font-size: 15px; font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    line-height: 1.5;
+  }
+
+  .contact-info-card a:hover { color: var(--red); }
+
+  .contact-form {
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+  }
+
+  .contact-form h3 {
+    font-size: 20px; font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px; font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 7px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #dde4ed;
+    border-radius: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    background: #f9fbfd;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(58,123,213,0.12);
+    background: #fff;
+  }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    cursor: pointer;
+    transition: all 0.25s;
+    margin-top: 8px;
+  }
+
+  .btn-submit:hover { background: var(--red); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,48,42,0.3); }
+
+  .map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 260px;
+    margin-top: 20px;
+    border: 2px solid #dde4ed;
+  }
+
+  .map-container iframe {
+    width: 100%; height: 100%; border: none; display: block;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy-dark);
+    padding: 48px 5vw 28px;
+    border-top: 2px solid var(--red);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo img { height: 46px; margin-bottom: 16px; display: block; }
+
+  .footer-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 320px;
+    margin-bottom: 20px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: #fff; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-bottom strong { color: rgba(255,255,255,0.5); }
+
+  /* ─── SCROLL INDICATOR ─── */
+  .scroll-line {
+    position: fixed; top: 0; left: 0;
+    height: 3px; background: var(--red);
+    z-index: 200; width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ─── SUCCESS MSG ─── */
+  .form-success {
+    display: none;
+    background: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 7px;
+    padding: 14px 18px;
+    font-size: 14px; color: #2e7d32;
+    margin-top: 12px;
+    font-weight: 600;
+  }
+
+  /* ─── TWEAKS PANEL ─── */
+  #tweaks-panel {
+    display: none;
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+    z-index: 9999;
+    width: 280px;
+    border: 1.5px solid #e8edf3;
+  }
+
+  #tweaks-panel h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tweak-row {
+    margin-bottom: 16px;
+  }
+
+  .tweak-row label {
+    display: block;
+    font-size: 11px; font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .tweak-row input[type="color"] {
+    width: 100%; height: 36px;
+    border-radius: 6px;
+    border: 1.5px solid #dde4ed;
+    cursor: pointer; padding: 2px;
+  }
+
+  .tweak-row input[type="range"] {
+    width: 100%;
+  }
+
+  .tweak-row select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1.5px solid #dde4ed;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--navy);
+    background: #f9fbfd;
+    cursor: pointer;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .about-grid, .contact-grid, .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .brands-grid { grid-template-columns: repeat(3, 1fr); }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-visual { display: none; }
+    .hero-stats { gap: 24px; }
+    .nav-links { display: none; }
+    .footer-grid { gap: 32px; }
+    .about-badge { right: 10px; bottom: -10px; }
+  }
+
+  @media (max-width: 600px) {
+    .brands-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-line" id="scrollLine"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-brand">YARENLER<span class="nav-brand-sub">TİCARET VE YAPI</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hakkimizda" data-tr="Hakkımızda" data-ru="О нас" data-en="About Us">Hakkımızda</a></li>
+    <li><a href="#urunler" data-tr="Ürünlerimiz" data-ru="Продукты" data-en="Products">Ürünlerimiz</a></li>
+    <li><a href="#iletisim" data-tr="İletişim" data-ru="Контакт" data-en="Contact">İletişim</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-contact">
+      <a href="https://wa.me/905353478339?text=Merhabalar" target="_blank" class="whatsapp-btn" title="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52z" fill="#25D366"/><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.02-.57-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="white"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:05353478339" class="nav-phone">
+        <span>📞</span> 0535 347 83 39
+      </a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('tr')">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="2" fill="#E30A17"/><circle cx="7.5" cy="7" r="3" fill="white"/><circle cx="8.8" cy="7" r="2.4" fill="#E30A17"/><polygon points="11.2,7 12.8,6.2 12.8,7.8" fill="white"/></svg>
+        TR
+      </button>
+      <button class="lang-btn" onclick="setLang('ru')">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="2" fill="#fff"/><rect y="4.67" width="20" height="4.66" fill="#0039A6"/><rect y="9.33" width="20" height="4.67" fill="#D52B1E"/></svg>
+        RU
+      </button>
+      <button class="lang-btn" onclick="setLang('en')">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="2" fill="#012169"/><path d="M0 0 L20 14 M20 0 L0 14" stroke="white" stroke-width="2.5"/><path d="M0 0 L20 14 M20 0 L0 14" stroke="#C8102E" stroke-width="1.5"/><path d="M10 0 V14 M0 7 H20" stroke="white" stroke-width="4"/><path d="M10 0 V14 M0 7 H20" stroke="#C8102E" stroke-width="2"/></svg>
+        EN
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span data-tr="Erdemli, Mersin" data-ru="Эрдемли, Мерсин" data-en="Erdemli, Mersin">Erdemli, Mersin</span>
+    </div>
+    <h1 class="hero-title">
+      <span data-tr="Yapının <br><span class='accent-red'>Güvenilir</span><br>Adresi" data-ru="Надёжный <br><span class='accent-red'>Адрес</span><br>Строительства" data-en="Your <br><span class='accent-red'>Trusted</span><br>Building Store">
+        Yapının <br><span class="accent-red">Güvenilir</span><br>Adresi
+      </span>
+    </h1>
+    <p class="hero-slogan" data-tr="Yarenler Ticaret ve Yapı" data-ru="Яренлер Тиджарет ве Япы" data-en="Yarenler Trade & Construction">Yarenler Ticaret ve Yapı</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">28<span>+</span></div>
+        <div class="label" data-tr="Yıllık Deneyim" data-ru="Лет Опыта" data-en="Years Experience">Yıllık Deneyim</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="label" data-tr="Yetkili Marka" data-ru="Авторизованных Брендов" data-en="Authorized Brands">Yetkili Marka</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="num">6</div>
+        <div class="label" data-tr="Ürün Kategorisi" data-ru="Категорий Товаров" data-en="Product Categories">Ürün Kategorisi</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#iletisim" class="btn-primary" data-tr="Bize Ulaşın" data-ru="Связаться с нами" data-en="Contact Us">Bize Ulaşın</a>
+      <a href="#hakkimizda" class="btn-outline" data-tr="Daha Fazla" data-ru="Подробнее" data-en="Learn More">Daha Fazla</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-cards">
+      <div class="hero-card hero-card-1">
+        <div class="hero-card-icon">🏗️</div>
+        <h4 data-tr="Yapı Malzemeleri" data-ru="Строительные материалы" data-en="Building Materials">Yapı Malzemeleri</h4>
+        <p data-tr="Uzman kadromuzla her projeye uygun çözüm" data-ru="Решения для любого проекта" data-en="Expert solutions for every project">Uzman kadromuzla her projeye uygun çözüm</p>
+      </div>
+      <div class="hero-card hero-card-2">
+        <div class="hero-card-icon">🏆</div>
+        <h4 data-tr="Yetkili Satıcı" data-ru="Авторизованный дилер" data-en="Authorized Dealer">Yetkili Satıcı</h4>
+        <p data-tr="5 lider markanın resmi temsilcisi" data-ru="Официальный представитель 5 марок" data-en="Official representative of 5 leading brands">5 lider markanın resmi temsilcisi</p>
+      </div>
+      <div class="hero-card hero-card-3">
+        <div class="hero-card-icon">🤝</div>
+        <h4 data-tr="Güvenilir Hizmet" data-ru="Надёжный сервис" data-en="Reliable Service">Güvenilir Hizmet</h4>
+        <p data-tr="28 yıldır kesintisiz" data-ru="Непрерывно 28 лет" data-en="Uninterrupted for 28 years">28 yıldır kesintisiz</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HAKKIMIZDA -->
+<section id="hakkimizda">
+  <div class="about-grid">
+    <div class="about-image">
+      <div class="about-img-box">
+        <img src="uploads/pasted-1776772259253-0.png" alt="Yarenler Yapı Mağaza" style="width:100%; height:100%; object-fit:contain; display:block; background:#0D2744;">
+      </div>
+      <div class="about-badge">
+        <div class="big">28</div>
+        <div class="small" data-tr="Yıllık<br>Deneyim" data-ru="Лет<br>Опыта" data-en="Years of<br>Experience">Yıllık<br>Deneyim</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label" data-tr="Hakkımızda" data-ru="О нас" data-en="About Us">Hakkımızda</div>
+      <h2 class="section-title" data-tr="28 Yıldır Güvenin ve Kalitenin Adresi" data-ru="28 лет надёжности и качества" data-en="28 Years of Trust and Quality">28 Yıldır Güvenin ve Kalitenin Adresi</h2>
+      <p class="section-sub" data-tr="Yarenler Ticaret ve Yapı olarak 1998'den bu yana Erdemli ve çevresinde yapı malzemeleri sektöründe faaliyet göstermekteyiz. Müşterilerimize en kaliteli ürünleri en uygun fiyatlarla sunmayı ve güvenilir bir çözüm ortağı olmayı ilke edindik." data-ru="Компания Yarenler Ticaret ve Yapı работает в секторе строительных материалов Эрдемли и окрестностей с 1998 года. Наш принцип — предлагать клиентам продукцию высшего качества по доступным ценам." data-en="Yarenler Ticaret ve Yapı has been serving the construction materials sector in Erdemli and surrounding areas since 1998. Our principle is to offer our customers the highest quality products at the best prices while being a trusted partner.">
+        Yarenler Ticaret ve Yapı olarak 1998'den bu yana Erdemli ve çevresinde yapı malzemeleri sektöründe faaliyet göstermekteyiz. Müşterilerimize en kaliteli ürünleri en uygun fiyatlarla sunmayı ve güvenilir bir çözüm ortağı olmayı ilke edindik.
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="about-feature-icon">✅</div>
+          <div>
+            <h4 data-tr="Yetkili Satıcı Güvencesi" data-ru="Гарантия авторизованного дилера" data-en="Authorized Dealer Guarantee">Yetkili Satıcı Güvencesi</h4>
+            <p data-tr="Vitra, QUA, Filli Boya, Nippon ve Fırat markalarının resmi yetkili satıcısıyız." data-ru="Мы официальный авторизованный дилер Vitra, QUA, Filli Boya, Nippon и Fırat." data-en="We are the official authorized dealer of Vitra, QUA, Filli Boya, Nippon and Fırat.">Vitra, QUA, Filli Boya, Nippon ve Fırat markalarının resmi yetkili satıcısıyız.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">🔧</div>
+          <div>
+            <h4 data-tr="Uzman Danışmanlık" data-ru="Экспертная консультация" data-en="Expert Consultancy">Uzman Danışmanlık</h4>
+            <p data-tr="Deneyimli ekibimiz projenize özel en doğru ürün seçimi için yanınızda." data-ru="Наша опытная команда поможет выбрать лучшие продукты для вашего проекта." data-en="Our experienced team is here to help you choose the right products for your project.">Deneyimli ekibimiz projenize özel en doğru ürün seçimi için yanınızda.</p>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-icon">📍</div>
+          <div>
+            <h4 data-tr="Yerel ve Güvenilir" data-ru="Местный и надёжный" data-en="Local & Reliable">Yerel ve Güvenilir</h4>
+            <p data-tr="28 yıldır aynı adreste, aynı güvenle hizmetinizdeyiz." data-ru="28 лет на том же месте, с той же надёжностью." data-en="Serving at the same address with the same trust for 28 years.">28 yıldır aynı adreste, aynı güvenle hizmetinizdeyiz.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÜRÜNLER -->
+<section id="urunler">
+  <div style="max-width: 640px;">
+    <div class="section-label" data-tr="Ürünlerimiz" data-ru="Наши продукты" data-en="Our Products">Ürünlerimiz</div>
+    <h2 class="section-title" data-tr="Geniş Ürün Yelpazemiz" data-ru="Широкий ассортимент продукции" data-en="Our Wide Product Range">Geniş Ürün Yelpazemiz</h2>
+    <p class="section-sub" data-tr="Her yapı projesine uygun kaliteli ürünler, yetkili markalar garantisiyle." data-ru="Качественные товары для любого строительного проекта, с гарантией авторизованных брендов." data-en="Quality products for every construction project, guaranteed by authorized brands.">Her yapı projesine uygun kaliteli ürünler, yetkili markalar garantisiyle.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-icon-wrap"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1" fill="#5a9de8" opacity="0.9"/><rect x="15" y="1" width="10" height="10" rx="1" fill="#3A7BD5" opacity="0.7"/><rect x="1" y="15" width="10" height="10" rx="1" fill="#3A7BD5" opacity="0.7"/><rect x="15" y="15" width="10" height="10" rx="1" fill="#5a9de8" opacity="0.9"/></svg></div>
+      <h3 data-tr="Seramik & Karo" data-ru="Керамика и плитка" data-en="Ceramic & Tile">Seramik & Karo</h3>
+      <p data-tr="Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler." data-ru="Широкая коллекция керамики. Решения для любого пространства." data-en="Wide domestic and imported ceramic collection. Solutions for every space and style.">Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler.</p>
+      <span class="product-num">01</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">🎨</div>
+      <h3 data-tr="Boya & Badana" data-ru="Краска и побелка" data-en="Paint & Coating">Boya & Badana</h3>
+      <p data-tr="Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri." data-ru="Качественные краски Filli Boya и Nippon для внутренних и внешних поверхностей." data-en="Quality interior and exterior paints and decorative products from Filli Boya and Nippon.">Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri.</p>
+      <span class="product-num">02</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">🏗️</div>
+      <h3 data-tr="Yapı Malzemeleri" data-ru="Строительные материалы" data-en="Building Materials">Yapı Malzemeleri</h3>
+      <p data-tr="Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm." data-ru="Цемент, песок, гипс, клеи и многое другое." data-en="Cement, sand, plaster, adhesives and more. Solutions for every phase of construction.">Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm.</p>
+      <span class="product-num">03</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">🚿</div>
+      <h3 data-tr="Banyo Ürünleri" data-ru="Товары для ванной" data-en="Bathroom Products">Banyo Ürünleri</h3>
+      <p data-tr="Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar." data-ru="Элитные коллекции ванных комнат Vitra и QUA." data-en="Premium bathroom collections from Vitra and QUA; sanitaryware, faucets and accessories.">Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar.</p>
+      <span class="product-num">04</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1 L14.5 5.5 H19.5 L15.5 8.5 L17 13 L13 10 L9 13 L10.5 8.5 L6.5 5.5 H11.5 Z" fill="#5a9de8"/><path d="M13 14 L13.8 16.5 H16.5 L14.3 18 L15.1 20.5 L13 19 L10.9 20.5 L11.7 18 L9.5 16.5 H12.2 Z" fill="#3A7BD5" opacity="0.7"/><path d="M6 19 L6.5 20.8 H8.5 L6.9 21.9 L7.5 23.7 L6 22.6 L4.5 23.7 L5.1 21.9 L3.5 20.8 H5.5 Z" fill="#5a9de8" opacity="0.5"/><path d="M20 19 L20.5 20.8 H22.5 L20.9 21.9 L21.5 23.7 L20 22.6 L18.5 23.7 L19.1 21.9 L17.5 20.8 H19.5 Z" fill="#5a9de8" opacity="0.5"/></svg></div>
+      <h3 data-tr="İzolasyon Malzemeleri" data-ru="Изоляционные материалы" data-en="Insulation Materials">İzolasyon Malzemeleri</h3>
+      <p data-tr="Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi." data-ru="Профессиональные решения для тепло-, звуко- и гидроизоляции." data-en="Professional solutions for thermal, acoustic and waterproofing insulation.">Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi.</p>
+      <span class="product-num">05</span>
+    </div>
+    <div class="product-card">
+      <div class="product-icon-wrap">🟫</div>
+      <h3 data-tr="Zemin Kaplamaları" data-ru="Напольные покрытия" data-en="Floor Coverings">Zemin Kaplamaları</h3>
+      <p data-tr="Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri." data-ru="Паркет, ламинат, ПВХ и керамические напольные покрытия." data-en="Parquet, laminate, PVC and ceramic floor coverings. Wide range of colors and patterns.">Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri.</p>
+      <span class="product-num">06</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOYA HESAPLAMA -->
+<section id="boya-hesaplama" style="background:#fff;">
+  <div style="max-width:700px;">
+    <div class="section-label" data-tr="Pratik Araç" data-ru="Практический инструмент" data-en="Practical Tool">Pratik Araç</div>
+    <h2 class="section-title" data-tr="Boya Hesaplama" data-ru="Калькулятор краски" data-en="Paint Calculator">Boya Hesaplama</h2>
+    <p class="section-sub" data-tr="Odanuzun ölçülerini girin, ne kadar boya gerektiğini hesaplayalım." data-ru="Введите размеры комнаты — мы посчитаем нужное количество краски." data-en="Enter your room dimensions and we'll calculate how much paint you need.">Odanuzun ölçülerini girin, ne kadar boya gerektiğini hesaplayalım.</p>
+  </div>
+
+  <div id="paint-calc" style="margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;">
+
+    <!-- INPUTS -->
+    <div style="background:var(--gray-light); border-radius:16px; padding:32px;">
+      <div style="margin-bottom:20px;">
+        <label class="calc-label" data-tr="Hesaplama Yöntemi" data-ru="Метод расчёта" data-en="Calculation Method">Hesaplama Yöntemi</label>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <button class="calc-tab active" id="tab-room" onclick="switchTab('room')" data-tr="Oda Ölçüleri" data-ru="Размеры комнаты" data-en="Room Dimensions">Oda Ölçüleri</button>
+          <button class="calc-tab" id="tab-area" onclick="switchTab('area')" data-tr="Direkt m²" data-ru="Прямой ввод м²" data-en="Direct m²">Direkt m²</button>
+        </div>
+      </div>
+
+      <div id="room-inputs">
+        <div class="calc-row">
+          <div class="calc-field">
+            <label class="calc-label" data-tr="Uzunluk (m)" data-ru="Длина (м)" data-en="Length (m)">Uzunluk (m)</label>
+            <input type="number" id="length" class="calc-input" value="4" min="0.5" step="0.1" oninput="calculate()">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label" data-tr="Genişlik (m)" data-ru="Ширина (м)" data-en="Width (m)">Genişlik (m)</label>
+            <input type="number" id="width" class="calc-input" value="3" min="0.5" step="0.1" oninput="calculate()">
+          </div>
+        </div>
+        <div class="calc-field" style="margin-top:14px;">
+          <label class="calc-label" data-tr="Tavan Yüksekliği (m)" data-ru="Высота потолка (м)" data-en="Ceiling Height (m)">Tavan Yüksekliği (m)</label>
+          <input type="number" id="height" class="calc-input" value="2.7" min="1" step="0.1" oninput="calculate()">
+        </div>
+      </div>
+
+      <div id="area-inputs" style="display:none;">
+        <div class="calc-field">
+          <label class="calc-label" data-tr="Toplam Alan (m²)" data-ru="Общая площадь (м²)" data-en="Total Area (m²)">Toplam Alan (m²)</label>
+          <input type="number" id="direct-area" class="calc-input" value="40" min="1" step="0.5" oninput="calculate()">
+        </div>
+      </div>
+
+      <div style="margin-top:18px; padding-top:18px; border-top:1px solid #dde4ed;">
+        <div class="calc-row">
+          <div class="calc-field">
+            <label class="calc-label" data-tr="Kapı Sayısı" data-ru="Количество дверей" data-en="Number of Doors">Kapı Sayısı</label>
+            <input type="number" id="doors" class="calc-input" value="1" min="0" step="1" oninput="calculate()">
+          </div>
+          <div class="calc-field">
+            <label class="calc-label" data-tr="Pencere Sayısı" data-ru="Количество окон" data-en="Number of Windows">Pencere Sayısı</label>
+            <input type="number" id="windows" class="calc-input" value="1" min="0" step="1" oninput="calculate()">
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <label class="calc-label" data-tr="Kat Sayısı (Boya)" data-ru="Количество слоёв" data-en="Number of Coats">İkat Sayısı</label>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <button class="coat-btn active" onclick="setCoats(1)" id="coat-1">1 İkat</button>
+          <button class="coat-btn" onclick="setCoats(2)" id="coat-2">2 İkat</button>
+          <button class="coat-btn" onclick="setCoats(3)" id="coat-3">3 İkat</button>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <label class="calc-label" data-tr="Boya Türü" data-ru="Тип краски" data-en="Paint Type">Boya Türü</label>
+        <select id="paint-type" class="calc-input" style="margin-top:8px;" onchange="calculate()">
+          <option value="10" data-tr="Standart İç Cephe (10 m²/lt)" data-ru="Стандартная внутренняя (10 м²/л)" data-en="Standard Interior (10 m²/lt)">Standart İç Cephe (10 m²/lt)</option>
+          <option value="8" data-tr="Dış Cephe (8 m²/lt)" data-ru="Внешняя краска (8 м²/л)" data-en="Exterior Paint (8 m²/lt)">Đış Cephe (8 m²/lt)</option>
+          <option value="12" data-tr="Premium İç Cephe (12 m²/lt)" data-ru="Премиум внутренняя (12 м²/л)" data-en="Premium Interior (12 m²/lt)">Premium İç Cephe (12 m²/lt)</option>
+          <option value="6" data-tr="Astar / Baz Kat (6 m²/lt)" data-ru="Грунтовка (6 м²/л)" data-en="Primer / Base Coat (6 m²/lt)">Astar / Baz Kat (6 m²/lt)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div>
+      <div style="background:var(--navy); border-radius:16px; padding:32px; color:#fff; margin-bottom:20px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:16px;" data-tr="Hesaplama Sonucu" data-ru="Результат" data-en="Result">Hesaplama Sonucu</div>
+        <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:4px;">
+          <span id="result-liters" style="font-family:'Montserrat',sans-serif; font-size:56px; font-weight:900; line-height:1; color:#fff;">8.5</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:22px; font-weight:700; color:rgba(255,255,255,0.6);">litre</span>
+        </div>
+        <div id="result-area" style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:8px;"></div>
+        <div style="margin-top:20px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div>
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:4px;" data-tr="Net Boyama Alanı" data-ru="Чистая площадь" data-en="Net Paint Area">Net Boyama Alanı</div>
+            <div id="result-net" style="font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; color:#fff;">—</div>
+          </div>
+          <div>
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:4px;" data-tr="Teneke Tavsiyesi" data-ru="Рекомендация" data-en="Can Recommendation">Teneke Tavsiyesi</div>
+            <div id="result-cans" style="font-family:'Montserrat',sans-serif; font-size:15px; font-weight:700; color:rgba(255,255,255,0.85); line-height:1.4;">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:rgba(224,48,42,0.07); border:1px solid rgba(224,48,42,0.2); border-radius:12px; padding:20px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">💡 <span data-tr="Profesyonel Tavsiye" data-ru="Профессиональный совет" data-en="Professional Tip">Profesyonel Tavsiye</span></div>
+        <p style="font-size:13px; color:var(--text); line-height:1.6;" data-tr="Hesaplanan miktara %10-15 fire payı eklemenizi öneririz. Boya rengi ve yüzey durumuna göre miktar değişebilir." data-ru="Рекомендуем добавить 10-15% запаса. Количество может варьироваться в зависимости от цвета и состояния поверхности." data-en="We recommend adding 10-15% extra to the calculated amount. Quantity may vary depending on paint color and surface condition.">Hesaplanan miktara %10-15 fire payı eklemenizi öneririz. Boya rengi ve yüzey durumuna göre miktar değişebilir.</p>
+        <div style="margin-top:12px; padding:12px 14px; background:rgba(13,39,68,0.06); border-radius:8px; border-left:3px solid var(--navy);">
+          <p style="font-size:12px; color:var(--navy); line-height:1.7; font-weight:600;" data-tr="⚠️ Bu sonuç yalnızca tahmini bir değerdir. Gerçek miktar; duvarın yapısı, sıva durumu, mevcut boya katı, nem oranı ve mekândan mekâna göre önemli ölçüde farklılık gösterebilir. Kesin miktar ve doğru ürün seçimi için lütfen işletmemizi arayın — uzman ekibimiz size ücretsiz danışmanlık sunacaktır." data-ru="⚠️ Этот результат является лишь приблизительным. Реальное количество может значительно отличаться в зависимости от структуры стены, состояния штукатурки, существующих слоёв краски и влажности. Для точного расчёта позвоните нам — наши специалисты проконсультируют вас бесплатно." data-en="⚠️ This result is an estimate only. The actual amount may vary significantly depending on wall structure, plaster condition, existing paint layers and humidity levels. For exact quantities and correct product selection, please call us — our expert team will provide free consultation.">⚠️ Bu sonuç yalnızca tahmini bir değerdir. Gerçek miktar; duvarın yapısı, sıva durumu, mevcut boya katı, nem oranı ve mekândan mekâna göre önemli ölçüde farklılık gösterebilir. Kesin miktar ve doğru ürün seçimi için lütfen işletmemizi arayın — uzman ekibimiz size ücretsiz danışmanlık sunacaktır.</p>
+        </div>
+        <a href="#iletisim" class="btn-primary" style="margin-top:16px; font-size:12px; padding:12px 20px;" data-tr="Uzman Tavsiyesi Al" data-ru="Получить консультацию" data-en="Get Expert Advice">Uzman Tavsiyesi Al</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calc-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .calc-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #dde4ed;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--navy);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .calc-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(58,123,213,0.12);
+  }
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .calc-field { display: flex; flex-direction: column; }
+  .calc-tab {
+    flex: 1;
+    padding: 9px 14px;
+    border-radius: 7px;
+    border: 1.5px solid #dde4ed;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+    color: var(--gray);
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+  .calc-tab.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+  .coat-btn {
+    flex: 1;
+    padding: 9px;
+    border-radius: 7px;
+    border: 1.5px solid #dde4ed;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700;
+    cursor: pointer;
+    background: #fff;
+    color: var(--gray);
+    transition: all 0.2s;
+  }
+  .coat-btn.active {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+  }
+  @media (max-width: 700px) {
+    #paint-calc { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  let coats = 2;
+  let calcMode = 'room';
+
+  function switchTab(mode) {
+    calcMode = mode;
+    document.getElementById('room-inputs').style.display = mode === 'room' ? 'block' : 'none';
+    document.getElementById('area-inputs').style.display = mode === 'area' ? 'block' : 'none';
+    document.getElementById('tab-room').classList.toggle('active', mode === 'room');
+    document.getElementById('tab-area').classList.toggle('active', mode === 'area');
+    calculate();
+  }
+
+  function setCoats(n) {
+    coats = n;
+    [1,2,3].forEach(i => document.getElementById('coat-'+i).classList.toggle('active', i === n));
+    calculate();
+  }
+
+  function calculate() {
+    let netArea = 0;
+    const doors = parseFloat(document.getElementById('doors').value) || 0;
+    const windows = parseFloat(document.getElementById('windows').value) || 0;
+    const coverage = parseFloat(document.getElementById('paint-type').value) || 10;
+
+    if (calcMode === 'room') {
+      const l = parseFloat(document.getElementById('length').value) || 0;
+      const w = parseFloat(document.getElementById('width').value) || 0;
+      const h = parseFloat(document.getElementById('height').value) || 0;
+      const wallArea = 2 * (l + w) * h;
+      const ceilingArea = l * w;
+      netArea = wallArea + ceilingArea;
+    } else {
+      netArea = parseFloat(document.getElementById('direct-area').value) || 0;
+    }
+
+    const subtracted = (doors * 1.8) + (windows * 1.5);
+    netArea = Math.max(0, netArea - subtracted);
+
+    const liters = (netArea * coats) / coverage;
+    const litersWithWaste = liters * 1.1;
+
+    // Can recommendations
+    const sizes = [15, 10, 7.5, 2.5, 1];
+    let remaining = litersWithWaste;
+    const cans = [];
+    for (const s of sizes) {
+      const count = Math.floor(remaining / s);
+      if (count > 0) { cans.push(count + 'x' + s + ' lt'); remaining -= count * s; }
+    }
+    if (remaining > 0.3) cans.push('1x1 lt');
+
+    document.getElementById('result-liters').textContent = litersWithWaste.toFixed(1);
+    document.getElementById('result-net').textContent = netArea.toFixed(1) + ' m²';
+    document.getElementById('result-cans').innerHTML = cans.length ? cans.join('<br>') : '—';
+
+    const lang = window.currentLang || 'tr';
+    const areaLabels = { tr: 'Net alan', ru: 'Чистая площадь', en: 'Net area' };
+    const coatLabels = { tr: 'İkat', ru: 'слой', en: 'coat(s)' };
+    document.getElementById('result-area').textContent =
+      areaLabels[lang] + ': ' + netArea.toFixed(1) + ' m² • ' + coats + ' ' + coatLabels[lang] + ' • +%10 fire';
+  }
+
+  // init
+  setCoats(2);
+</script>
+
+<!-- MARKALAR -->
+<section id="markalar">
+  <div class="section-label" style="color:rgba(255,255,255,0.5);">
+    <span style="background:rgba(255,255,255,0.3); display:block; width:28px; height:2px;"></span>
+    <span data-tr="Yetkili Markalarımız" data-ru="Авторизованные бренды" data-en="Our Authorized Brands">Yetkili Markalarımız</span>
+  </div>
+  <h2 class="section-title" data-tr="Güvenilir Markaların <br>Yetkili Satıcısıyız" data-ru="Мы авторизованный дилер <br>надёжных брендов" data-en="Authorized Dealer of <br>Trusted Brands">Güvenilir Markaların <br>Yetkili Satıcısıyız</h2>
+  <p class="section-sub" data-tr="Sektörün önde gelen 5 markasının resmi yetkili satıcısı olarak, orijinal ürün ve satış sonrası destek güvencesi sunuyoruz." data-ru="Как официальный авторизованный дилер 5 ведущих брендов, мы гарантируем оригинальные продукты и послепродажную поддержку." data-en="As the official authorized dealer of 5 leading brands, we provide genuine products and after-sales support.">Sektörün önde gelen 5 markasının resmi yetkili satıcısı olarak, orijinal ürün ve satış sonrası destek güvencesi sunuyoruz.</p>
+  <div class="brands-divider"></div>
+  <div class="brands-grid">
+
+    <!-- Vitra -->
+    <div class="brand-card brand-vitra">
+      <div class="brand-badge" data-tr="Yetkili" data-ru="Авторизован" data-en="Authorized">Yetkili</div>
+      <div class="brand-logo-area">
+        <div class="logo-text">Vi<em>tr</em>a</div>
+      </div>
+      <div class="brand-tag" data-tr="Banyo Çözümleri" data-ru="Решения для ванной" data-en="Bathroom Solutions">Banyo Çözümleri</div>
+    </div>
+
+    <!-- QUA -->
+    <div class="brand-card brand-qua">
+      <div class="brand-badge" data-tr="Yetkili" data-ru="Авторизован" data-en="Authorized">Yetkili</div>
+      <div class="brand-logo-area">
+        <div class="logo-text">QUA</div>
+      </div>
+      <div class="brand-tag" data-tr="Granit & Seramik" data-ru="Гранит и керамика" data-en="Granite & Ceramic">Granit & Seramik</div>
+    </div>
+
+    <!-- Filli Boya -->
+    <div class="brand-card brand-filli">
+      <div class="brand-badge" data-tr="Yetkili" data-ru="Авторизован" data-en="Authorized">Yetkili</div>
+      <div class="brand-logo-area">
+        <div class="logo-wrap">
+          <div class="logo-filli">Filli</div>
+          <div class="logo-boya">Boya</div>
+        </div>
+      </div>
+      <div class="brand-tag" data-tr="Boya & Yüzey" data-ru="Краски и покрытия" data-en="Paint & Surface">Boya & Yüzey</div>
+    </div>
+
+    <!-- Nippon -->
+    <div class="brand-card brand-nippon">
+      <div class="brand-badge" data-tr="Yetkili" data-ru="Авторизован" data-en="Authorized">Yetkili</div>
+      <div class="brand-logo-area">
+        <div class="logo-wrap">
+          <div class="logo-circle"></div>
+          <div class="logo-text">NIPPON<small>PAINT</small></div>
+        </div>
+      </div>
+      <div class="brand-tag" data-tr="Boya & Zemin" data-ru="Краска и полы" data-en="Paint & Flooring">Boya & Zemin</div>
+    </div>
+
+    <!-- Fırat -->
+    <div class="brand-card brand-firat">
+      <div class="brand-badge" data-tr="Yetkili" data-ru="Авторизован" data-en="Authorized">Yetkili</div>
+      <div class="brand-logo-area">
+        <div class="logo-text">FIRAT</div>
+      </div>
+      <div class="brand-tag" data-tr="Boru & Yapı Sistemleri" data-ru="Трубы и строительные системы" data-en="Pipes & Building Systems">Boru & Yapı Sistemleri</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section id="iletisim">
+  <div class="section-label" data-tr="İletişim" data-ru="Контакт" data-en="Contact">İletişim</div>
+  <h2 class="section-title" data-tr="Bizimle İletişime Geçin" data-ru="Свяжитесь с нами" data-en="Get In Touch With Us">Bizimle İletişime Geçin</h2>
+  <p class="section-sub" data-tr="Sorularınız, ürün bilgisi veya fiyat teklifi için bize ulaşın. Uzman ekibimiz en kısa sürede size dönüş yapacaktır." data-ru="Свяжитесь с нами по любым вопросам. Наша команда ответит вам в кратчайшие сроки." data-en="Contact us for your questions, product information or a price quote. Our expert team will get back to you as soon as possible.">Sorularınız, ürün bilgisi veya fiyat teklifi için bize ulaşın. Uzman ekibimiz en kısa sürede size dönüş yapacaktır.</p>
+
+  <div class="contact-grid">
+    <div>
+      <div class="contact-info-cards">
+        <div class="contact-info-card">
+          <div class="contact-info-icon">📍</div>
+          <div>
+            <h4 data-tr="Adres" data-ru="Адрес" data-en="Address">Adres</h4>
+            <p>Akdeniz, Alparslan Türkeş Blv.<br>NO:425/A D:A, 33770<br>Erdemli / Mersin</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-icon">📞</div>
+          <div>
+            <h4 data-tr="Telefon" data-ru="Телефон" data-en="Phone">Telefon</h4>
+            <a href="tel:05353478339">0535 347 83 39</a>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-icon">🕐</div>
+          <div>
+            <h4 data-tr="Çalışma Saatleri" data-ru="Часы работы" data-en="Working Hours">Çalışma Saatleri</h4>
+            <p data-tr="Pazartesi – Cumartesi: 08:00 – 19:00<br>Pazar: Kapalı" data-ru="Понедельник – Суббота: 08:00 – 19:00<br>Воскресенье: Закрыто" data-en="Monday – Saturday: 08:00 – 19:00<br>Sunday: Closed">Pazartesi – Cumartesi: 08:00 – 19:00<br>Pazar: Kapalı</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://maps.google.com/maps?q=Akdeniz+Alparslan+Türkeş+Bulvarı+425+Erdemli+Mersin&output=embed&z=15"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3 data-tr="Bilgi Talep Formu" data-ru="Форма запроса информации" data-en="Information Request Form">Bilgi Talep Formu</h3>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-tr="Ad Soyad" data-ru="Имя Фамилия" data-en="Full Name">Ad Soyad</label>
+            <input type="text" placeholder="Ahmet Yılmaz" required>
+          </div>
+          <div class="form-group">
+            <label data-tr="Telefon" data-ru="Телефон" data-en="Phone">Telefon</label>
+            <input type="tel" placeholder="0555 000 00 00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-tr="Konu" data-ru="Тема" data-en="Subject">Konu</label>
+          <select>
+            <option data-tr="Ürün Bilgisi" data-ru="Информация о товаре" data-en="Product Information">Ürün Bilgisi</option>
+            <option data-tr="Fiyat Teklifi" data-ru="Ценовое предложение" data-en="Price Quote">Fiyat Teklifi</option>
+            <option data-tr="Yetkili Marka Sorgusu" data-ru="Запрос об авторизованном бренде" data-en="Authorized Brand Query">Yetkili Marka Sorgusu</option>
+            <option data-tr="Diğer" data-ru="Другое" data-en="Other">Diğer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label data-tr="Mesajınız" data-ru="Ваше сообщение" data-en="Your Message">Mesajınız</label>
+          <textarea placeholder="Mesajınızı buraya yazın..." data-tr-placeholder="Mesajınızı buraya yazın..." data-ru-placeholder="Напишите ваше сообщение..." data-en-placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" data-tr="Gönder" data-ru="Отправить" data-en="Send">Gönder</button>
+        <div class="form-success" id="formSuccess" data-tr="✅ Mesajınız alındı. En kısa sürede sizi arayacağız." data-ru="✅ Ваше сообщение получено. Мы свяжемся с вами в ближайшее время." data-en="✅ Your message has been received. We will get back to you shortly.">✅ Mesajınız alındı. En kısa sürede sizi arayacağız.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <span style="font-family:'Montserrat',sans-serif; font-size:24px; font-weight:900; color:#fff; letter-spacing:0.12em; display:flex; flex-direction:column; line-height:1;">YARENLER<span style="font-size:10px; font-weight:600; letter-spacing:0.28em; color:rgba(255,255,255,0.55); margin-top:4px;">TİCARET VE YAPI</span></span>
+      </div>
+      <p class="footer-desc" data-tr="28 yıldır Erdemli'nin güvenilir yapı marketi. Yetkili markalar, uzman danışmanlık ve samimi hizmet." data-ru="Надёжный строительный магазин Эрдемли уже 28 лет. Авторизованные бренды, экспертная консультация." data-en="Erdemli's trusted building store for 28 years. Authorized brands, expert consultancy and genuine service.">28 yıldır Erdemli'nin güvenilir yapı marketi. Yetkili markalar, uzman danışmanlık ve samimi hizmet.</p>
+      <div style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:0.08em; text-transform:uppercase;">
+        Güven ve Kalitenin Adresi
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-tr="Sayfalar" data-ru="Страницы" data-en="Pages">Sayfalar</h4>
+      <ul>
+        <li><a href="#hakkimizda" data-tr="Hakkımızda" data-ru="О нас" data-en="About Us">Hakkımızda</a></li>
+        <li><a href="#urunler" data-tr="Ürünlerimiz" data-ru="Продукты" data-en="Products">Ürünlerimiz</a></li>
+        <li><a href="#markalar" data-tr="Markalar" data-ru="Бренды" data-en="Brands">Markalar</a></li>
+        <li><a href="#iletisim" data-tr="İletişim" data-ru="Контакт" data-en="Contact">İletişim</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-tr="İletişim" data-ru="Контакт" data-en="Contact">İletişim</h4>
+      <ul>
+        <li><a href="tel:05353478339">0535 347 83 39</a></li>
+        <li><a href="https://maps.google.com/?q=Erdemli+Mersin" target="_blank" data-tr="Haritada Gör" data-ru="Смотреть на карте" data-en="View on Map">Haritada Gör</a></li>
+        <li style="color:rgba(255,255,255,0.45); font-size:13px; line-height:1.6;">Akdeniz, Alparslan Türkeş Blv. NO:425/A, Erdemli / Mersin</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 <strong>Yarenler Ticaret ve Yapı</strong>. <span data-tr="Tüm hakları saklıdır." data-ru="Все права защищены." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+    <p style="font-size:12px; color:rgba(255,255,255,0.2);" data-tr="Erdemli / Mersin — 1998'den bu yana" data-ru="Эрдемли / Мерсин — с 1998 года" data-en="Erdemli / Mersin — since 1998">Erdemli / Mersin — 1998'den bu yana</p>
+  </div>
+</footer>
+
+<!-- TWEAKS PANEL -->
+<div id="tweaks-panel">
+  <h3>Tweaks</h3>
+  <div class="tweak-row">
+    <label data-tr="Ana Renk (Lacivert)" data-ru="Основной цвет">Ana Renk</label>
+    <input type="color" id="tweak-navy" value="#0D2744" oninput="applyTweak('navy', this.value)">
+  </div>
+  <div class="tweak-row">
+    <label data-tr="Vurgu Rengi (Kırmızı)" data-ru="Акцентный цвет">Vurgu Rengi</label>
+    <input type="color" id="tweak-red" value="#E0302A" oninput="applyTweak('red', this.value)">
+  </div>
+  <div class="tweak-row">
+    <label>Yazı Tipi</label>
+    <select onchange="applyFontTweak(this.value)">
+      <option value="Montserrat">Montserrat</option>
+      <option value="Oswald">Oswald</option>
+      <option value="Raleway">Raleway</option>
+      <option value="Barlow">Barlow</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label data-tr="Hero Arka Plan Izgarası" data-ru="Сетка фона Hero">Hero Izgarası</label>
+    <select onchange="toggleGrid(this.value)">
+      <option value="on">Açık</option>
+      <option value="off">Kapalı</option>
+    </select>
+  </div>
+</div>
+
+<script>
+// ─── SCROLL ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  const line = document.getElementById('scrollLine');
+  const scrolled = window.scrollY > 40;
+  nav.classList.toggle('scrolled', scrolled);
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  line.style.width = pct + '%';
+});
+
+// ─── FORM ───
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('input[type="text"]').value.trim();
+  const phone = form.querySelector('input[type="tel"]').value.trim();
+  const subject = form.querySelector('select').value.trim();
+  const message = form.querySelector('textarea').value.trim();
+
+  const lang = currentLang || 'tr';
+  let text = '';
+  if (lang === 'ru') {
+    text = `Здравствуйте! Новый запрос с сайта:%0A%0AИмя: ${encodeURIComponent(name)}%0AТелефон: ${encodeURIComponent(phone)}%0AТема: ${encodeURIComponent(subject)}%0AСообщение: ${encodeURIComponent(message)}`;
+  } else if (lang === 'en') {
+    text = `Hello! New inquiry from website:%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ASubject: ${encodeURIComponent(subject)}%0AMessage: ${encodeURIComponent(message)}`;
+  } else {
+    text = `Merhabalar! Web sitesinden yeni bir bilgi talebi var:%0A%0AAd Soyad: ${encodeURIComponent(name)}%0ATelefon: ${encodeURIComponent(phone)}%0AKonu: ${encodeURIComponent(subject)}%0AMesaj: ${encodeURIComponent(message)}`;
+  }
+
+  window.open(`https://wa.me/905353478339?text=${text}`, '_blank');
+
+  const success = document.getElementById('formSuccess');
+  success.style.display = 'block';
+  form.reset();
+  setTimeout(() => { success.style.display = 'none'; }, 5000);
+}
+
+// ─── LANGUAGE ───
+let currentLang = (function() {
+  // If user has manually set a language, respect that
+  const saved = localStorage.getItem('yarenler_lang_manual');
+  if (saved) return saved;
+  // Otherwise detect from browser
+  const browser = (navigator.language || navigator.userLanguage || 'tr').toLowerCase();
+  if (browser.startsWith('ru')) return 'ru';
+  if (browser.startsWith('en')) return 'en';
+  return 'tr'; // default Turkish
+})();
+
+function setLang(lang, manual = true) {
+  currentLang = lang;
+  if (manual) localStorage.setItem('yarenler_lang_manual', lang);
+  localStorage.setItem('yarenler_lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+  document.querySelectorAll('[data-tr]').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (!val) return;
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      const phKey = `data-${lang}-placeholder`;
+      if (el.hasAttribute(phKey)) el.placeholder = el.getAttribute(phKey);
+    } else {
+      el.innerHTML = val;
+    }
+  });
+
+  // Update select options
+  document.querySelectorAll('select option[data-tr]').forEach(opt => {
+    const val = opt.getAttribute('data-' + lang);
+    if (val) opt.textContent = val;
+  });
+
+  // html lang
+  document.documentElement.lang = lang === 'ru' ? 'ru' : lang === 'en' ? 'en' : 'tr';
+}
+
+// Init lang
+setLang(currentLang);
+
+// ─── TWEAKS ───
+window.addEventListener('message', e => {
+  if (e.data?.type === '__activate_edit_mode') {
+    document.getElementById('tweaks-panel').style.display = 'block';
+  } else if (e.data?.type === '__deactivate_edit_mode') {
+    document.getElementById('tweaks-panel').style.display = 'none';
+  }
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"navy":"#0D2744","red":"#E0302A","font":"Montserrat"}/*EDITMODE-END*/;
+
+function applyTweak(key, value) {
+  if (key === 'navy') {
+    document.documentElement.style.setProperty('--navy', value);
+    document.documentElement.style.setProperty('--navy-dark', value);
+    document.documentElement.style.setProperty('--navy-mid', value);
+  }
+  if (key === 'red') {
+    document.documentElement.style.setProperty('--red', value);
+  }
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+}
+
+function applyFontTweak(font) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `https://fonts.googleapis.com/css2?family=${font.replace(' ', '+')}:wght@400;600;700;800;900&display=swap`;
+  document.head.appendChild(link);
+  document.querySelectorAll('h1,h2,h3,h4,.nav-links a,.btn-primary,.btn-outline,.btn-submit,.hero-badge span,.section-label').forEach(el => {
+    el.style.fontFamily = `'${font}', sans-serif`;
+  });
+}
+
+function toggleGrid(val) {
+  document.querySelector('.hero-grid').style.display = val === 'on' ? 'block' : 'none';
+}
+
+// Apply saved tweaks
+if (TWEAK_DEFAULTS.navy !== '#0D2744') applyTweak('navy', TWEAK_DEFAULTS.navy);
+if (TWEAK_DEFAULTS.red !== '#E0302A') applyTweak('red', TWEAK_DEFAULTS.red);
+</script>
+</body>
+</html>
