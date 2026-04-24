@@ -516,54 +516,50 @@
   }
 
   .product-card {
-    background: var(--gray-light);
+    background: #fff;
     border-radius: 12px;
-    padding: 32px 28px;
+    padding: 0;
     position: relative;
     overflow: hidden;
-    border: 1px solid transparent;
+    border: 1px solid rgba(13,39,68,0.08);
     transition: all 0.3s;
     cursor: default;
   }
 
-  .product-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--red), var(--blue));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
+  .product-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.1); transform: translateY(-5px); border-color: rgba(58,123,213,0.2); }
+
+  .product-img {
+    width: 100%; aspect-ratio: 16/9;
+    overflow: hidden; background: var(--navy);
   }
 
-  .product-card:hover { border-color: rgba(58,123,213,0.15); background: #fff; box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
-  .product-card:hover::before { transform: scaleX(1); }
-
-  .product-icon-wrap {
-    width: 58px; height: 58px;
-    border-radius: 12px;
-    background: var(--navy);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
-    font-size: 26px;
+  .product-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.45s ease;
   }
 
-  .product-card h3 {
-    font-size: 17px; font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
+  .product-card:hover .product-img img { transform: scale(1.06); }
+
+  .product-body {
+    padding: 20px 22px 42px;
+    position: relative;
   }
 
-  .product-card p {
-    font-size: 14px; color: var(--gray); line-height: 1.6;
+  .product-body h3 {
+    font-size: 16px; font-weight: 700;
+    color: var(--navy); margin-bottom: 7px;
+  }
+
+  .product-body p {
+    font-size: 13px; color: var(--gray); line-height: 1.6;
   }
 
   .product-card .product-num {
-    position: absolute; bottom: 20px; right: 24px;
+    position: absolute; bottom: 14px; right: 18px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 48px; font-weight: 900;
-    color: rgba(13,39,68,0.05);
+    font-size: 40px; font-weight: 900;
+    color: rgba(13,39,68,0.06);
     line-height: 1;
   }
 
@@ -1083,7 +1079,7 @@
 
     .contact-form { padding: 18px 14px; }
     .brand-card { padding: 20px 10px; }
-    .product-card { padding: 22px 16px; }
+    .product-card { padding: 0; }
     .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
   }
 
@@ -1261,40 +1257,64 @@
   </div>
   <div class="products-grid">
     <div class="product-card">
-      <div class="product-icon-wrap"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="10" height="10" rx="1" fill="#5a9de8" opacity="0.9"/><rect x="15" y="1" width="10" height="10" rx="1" fill="#3A7BD5" opacity="0.7"/><rect x="1" y="15" width="10" height="10" rx="1" fill="#3A7BD5" opacity="0.7"/><rect x="15" y="15" width="10" height="10" rx="1" fill="#5a9de8" opacity="0.9"/></svg></div>
-      <h3 data-tr="Seramik & Karo" data-ru="Керамика и плитка" data-en="Ceramic & Tile">Seramik & Karo</h3>
-      <p data-tr="Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler." data-ru="Широкая коллекция керамики. Решения для любого пространства." data-en="Wide domestic and imported ceramic collection. Solutions for every space and style.">Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler.</p>
-      <span class="product-num">01</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/6900669/pexels-photo-6900669.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="Seramik ve karo" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="Seramik & Karo" data-ru="Керамика и плитка" data-en="Ceramic & Tile">Seramik & Karo</h3>
+        <p data-tr="Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler." data-ru="Широкая коллекция керамики. Решения для любого пространства." data-en="Wide domestic and imported ceramic collection. Solutions for every space and style.">Yerli ve ithal geniş seramik koleksiyonu. Her mekan ve tarza uygun çözümler.</p>
+        <span class="product-num">01</span>
+      </div>
     </div>
     <div class="product-card">
-      <div class="product-icon-wrap">🎨</div>
-      <h3 data-tr="Boya & Badana" data-ru="Краска и побелка" data-en="Paint & Coating">Boya & Badana</h3>
-      <p data-tr="Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri." data-ru="Качественные краски Filli Boya и Nippon для внутренних и внешних поверхностей." data-en="Quality interior and exterior paints and decorative products from Filli Boya and Nippon.">Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri.</p>
-      <span class="product-num">02</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/34046213/pexels-photo-34046213.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="Boya ve badana" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="Boya & Badana" data-ru="Краска и побелка" data-en="Paint & Coating">Boya & Badana</h3>
+        <p data-tr="Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri." data-ru="Качественные краски Filli Boya и Nippon для внутренних и внешних поверхностей." data-en="Quality interior and exterior paints and decorative products from Filli Boya and Nippon.">Filli Boya ve Nippon'un kaliteli iç-dış cephe boyaları ve dekoratif ürünleri.</p>
+        <span class="product-num">02</span>
+      </div>
     </div>
     <div class="product-card">
-      <div class="product-icon-wrap">🏗️</div>
-      <h3 data-tr="Yapı Malzemeleri" data-ru="Строительные материалы" data-en="Building Materials">Yapı Malzemeleri</h3>
-      <p data-tr="Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm." data-ru="Цемент, песок, гипс, клеи и многое другое." data-en="Cement, sand, plaster, adhesives and more. Solutions for every phase of construction.">Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm.</p>
-      <span class="product-num">03</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/29817952/pexels-photo-29817952.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="Yapı malzemeleri" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="Yapı Malzemeleri" data-ru="Строительные материалы" data-en="Building Materials">Yapı Malzemeleri</h3>
+        <p data-tr="Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm." data-ru="Цемент, песок, гипс, клеи и многое другое." data-en="Cement, sand, plaster, adhesives and more. Solutions for every phase of construction.">Çimento, kum, alçı, yapıştırıcı ve daha fazlası. İnşaatınızın her aşamasına çözüm.</p>
+        <span class="product-num">03</span>
+      </div>
     </div>
     <div class="product-card">
-      <div class="product-icon-wrap">🚿</div>
-      <h3 data-tr="Banyo Ürünleri" data-ru="Товары для ванной" data-en="Bathroom Products">Banyo Ürünleri</h3>
-      <p data-tr="Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar." data-ru="Элитные коллекции ванных комнат Vitra и QUA." data-en="Premium bathroom collections from Vitra and QUA; sanitaryware, faucets and accessories.">Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar.</p>
-      <span class="product-num">04</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/8146201/pexels-photo-8146201.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="Banyo ürünleri" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="Banyo Ürünleri" data-ru="Товары для ванной" data-en="Bathroom Products">Banyo Ürünleri</h3>
+        <p data-tr="Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar." data-ru="Элитные коллекции ванных комнат Vitra и QUA." data-en="Premium bathroom collections from Vitra and QUA; sanitaryware, faucets and accessories.">Vitra ve QUA'nın seçkin banyo koleksiyonları; vitrifiye, batarya ve aksesuarlar.</p>
+        <span class="product-num">04</span>
+      </div>
     </div>
     <div class="product-card">
-      <div class="product-icon-wrap"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 1 L14.5 5.5 H19.5 L15.5 8.5 L17 13 L13 10 L9 13 L10.5 8.5 L6.5 5.5 H11.5 Z" fill="#5a9de8"/><path d="M13 14 L13.8 16.5 H16.5 L14.3 18 L15.1 20.5 L13 19 L10.9 20.5 L11.7 18 L9.5 16.5 H12.2 Z" fill="#3A7BD5" opacity="0.7"/><path d="M6 19 L6.5 20.8 H8.5 L6.9 21.9 L7.5 23.7 L6 22.6 L4.5 23.7 L5.1 21.9 L3.5 20.8 H5.5 Z" fill="#5a9de8" opacity="0.5"/><path d="M20 19 L20.5 20.8 H22.5 L20.9 21.9 L21.5 23.7 L20 22.6 L18.5 23.7 L19.1 21.9 L17.5 20.8 H19.5 Z" fill="#5a9de8" opacity="0.5"/></svg></div>
-      <h3 data-tr="İzolasyon Malzemeleri" data-ru="Изоляционные материалы" data-en="Insulation Materials">İzolasyon Malzemeleri</h3>
-      <p data-tr="Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi." data-ru="Профессиональные решения для тепло-, звуко- и гидроизоляции." data-en="Professional solutions for thermal, acoustic and waterproofing insulation.">Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi.</p>
-      <span class="product-num">05</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/6124239/pexels-photo-6124239.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="İzolasyon malzemeleri" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="İzolasyon Malzemeleri" data-ru="Изоляционные материалы" data-en="Insulation Materials">İzolasyon Malzemeleri</h3>
+        <p data-tr="Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi." data-ru="Профессиональные решения для тепло-, звуко- и гидроизоляции." data-en="Professional solutions for thermal, acoustic and waterproofing insulation.">Isı, ses ve su yalıtımı için profesyonel çözümler ve ürün yelpazesi.</p>
+        <span class="product-num">05</span>
+      </div>
     </div>
     <div class="product-card">
-      <div class="product-icon-wrap">🟫</div>
-      <h3 data-tr="Zemin Kaplamaları" data-ru="Напольные покрытия" data-en="Floor Coverings">Zemin Kaplamaları</h3>
-      <p data-tr="Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri." data-ru="Паркет, ламинат, ПВХ и керамические напольные покрытия." data-en="Parquet, laminate, PVC and ceramic floor coverings. Wide range of colors and patterns.">Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri.</p>
-      <span class="product-num">06</span>
+      <div class="product-img">
+        <img src="https://images.pexels.com/photos/20843726/pexels-photo-20843726.jpeg?auto=compress&cs=tinysrgb&w=600&h=340&fit=crop" alt="Zemin kaplamaları" loading="lazy">
+      </div>
+      <div class="product-body">
+        <h3 data-tr="Zemin Kaplamaları" data-ru="Напольные покрытия" data-en="Floor Coverings">Zemin Kaplamaları</h3>
+        <p data-tr="Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri." data-ru="Паркет, ламинат, ПВХ и керамические напольные покрытия." data-en="Parquet, laminate, PVC and ceramic floor coverings. Wide range of colors and patterns.">Parke, laminat, PVC ve seramik zemin kaplamaları. Geniş renk ve desen seçenekleri.</p>
+        <span class="product-num">06</span>
+      </div>
     </div>
   </div>
 </section>
