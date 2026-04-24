@@ -96,17 +96,59 @@
   }
   .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
 
+  /* Hamburger açma/kapama animasyonu */
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   @media (max-width: 900px) {
+    nav { padding: 0 4vw; height: 72px; }
+    nav.scrolled { height: 72px; }
+    .nav-brand { font-size: 22px; }
+    .nav-brand-sub { font-size: 9px; letter-spacing: 0.22em; }
     .nav-links { display: none; }
     .nav-contact { display: none; }
     .hamburger { display: flex; }
     .nav-links.open {
       display: flex; flex-direction: column; gap: 0;
-      position: fixed; top: 80px; left: 0; right: 0;
-      background: rgba(9,28,51,0.99); padding: 16px 0;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(9,28,51,0.99);
+      backdrop-filter: blur(16px);
+      padding-bottom: 8px;
       border-bottom: 2px solid var(--red);
+      z-index: 99;
+      max-height: calc(100dvh - 72px);
+      overflow-y: auto;
     }
-    .nav-links.open li { padding: 12px 5vw; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-links.open li { border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-links.open li a { display: block; padding: 16px 5vw; font-size: 14px; }
+    .page-hero { margin-top: 72px; padding: 56px 4vw 44px; }
+    .values-section { padding: 48px 4vw; }
+    .team-section { padding: 56px 4vw; }
+    .quote-section { padding: 52px 4vw; }
+    footer { padding: 40px 4vw 20px; }
+  }
+
+  @media (max-width: 600px) {
+    nav { height: 64px; }
+    nav.scrolled { height: 64px; }
+    .nav-brand { font-size: 19px; }
+    .nav-links.open { top: 64px; max-height: calc(100dvh - 64px); }
+    .page-hero { padding: 44px 4vw 36px; }
+    .page-hero h1 { font-size: clamp(26px, 7vw, 40px); }
+    .page-hero p { font-size: 15px; }
+    .values-section { padding: 40px 4vw; }
+    .team-section { padding: 44px 4vw; }
+    .quote-section { padding: 44px 4vw; }
+    .quote-cta { width: 100%; text-align: center; }
+  }
+
+  @media (max-width: 420px) {
+    nav { height: 60px; }
+    nav.scrolled { height: 60px; }
+    .nav-brand { font-size: 17px; letter-spacing: 0.08em; }
+    .nav-links.open { top: 60px; max-height: calc(100dvh - 60px); }
+    .page-hero { margin-top: 60px; }
   }
 
   /* HERO BAND */
@@ -326,14 +368,16 @@
   .footer-bottom strong { color: rgba(255,255,255,0.6); }
 
   @media (max-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-    .team-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-    .values-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .team-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    .values-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
   @media (max-width: 480px) {
-    .values-grid { grid-template-columns: 1fr; }
-    .team-grid { grid-template-columns: 1fr 1fr; }
+    .values-grid { grid-template-columns: 1fr; gap: 12px; }
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .value-card { padding: 24px 16px; }
+    .section-header { margin-bottom: 36px; }
   }
 </style>
 </head>
@@ -529,7 +573,14 @@
   // Hamburger menu
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('open');
   }
+  document.querySelectorAll('#navLinks a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
 </script>
 </body>
 </html>

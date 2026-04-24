@@ -986,25 +986,114 @@
     cursor: pointer;
   }
 
+  /* ─── HAMBURGER ─── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #fff; border-radius: 2px; transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile-only nav items — hidden on desktop */
+  .nav-mob-sep, .nav-mob-item { display: none; }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
-    .about-grid, .contact-grid, .footer-grid {
-      grid-template-columns: 1fr;
+    nav { padding: 0 4vw; height: 72px; }
+    nav.scrolled { height: 72px; }
+    .nav-brand { font-size: 22px; }
+    .nav-brand-sub { font-size: 9px; letter-spacing: 0.22em; }
+
+    .nav-links { display: none; }
+    .nav-contact { display: none; }
+    .lang-toggle { display: none; }
+    .hamburger { display: flex; }
+
+    .nav-links.open {
+      display: flex; flex-direction: column; gap: 0;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(9, 28, 51, 0.99);
+      backdrop-filter: blur(16px);
+      border-bottom: 2px solid var(--red);
+      z-index: 99;
+      max-height: calc(100dvh - 72px);
+      overflow-y: auto;
+      padding-bottom: 8px;
     }
+    .nav-links.open li { padding: 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-links.open li a { display: block; padding: 16px 5vw; font-size: 14px; }
+
+    .nav-mob-sep {
+      display: block;
+      height: 1px; background: rgba(255,255,255,0.12); margin: 6px 0;
+    }
+    .nav-mob-item { display: block; }
+    .nav-mob-item a { display: flex; align-items: center; gap: 8px; padding: 14px 5vw; font-size: 14px; font-weight: 700; }
+
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     .brands-grid { grid-template-columns: repeat(3, 1fr); }
     .products-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-visual { display: none; }
     .hero-stats { gap: 24px; }
-    .nav-links { display: none; }
-    .footer-grid { gap: 32px; }
     .about-badge { right: 10px; bottom: -10px; }
+    .about-grid { gap: 48px; }
+
+    section { padding: 64px 4vw; }
+    #hero { min-height: 100svh; }
+    .hero-content { margin-top: 80px; }
+    .contact-form { padding: 24px 20px; }
+    .contact-grid { gap: 32px; }
   }
 
   @media (max-width: 600px) {
-    .brands-grid { grid-template-columns: repeat(2, 1fr); }
-    .products-grid { grid-template-columns: 1fr; }
-    .hero-stats { flex-wrap: wrap; }
+    nav { height: 64px; }
+    nav.scrolled { height: 64px; }
+    .nav-brand { font-size: 19px; }
+    .nav-links.open { top: 64px; max-height: calc(100dvh - 64px); }
+
+    .brands-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .products-grid { grid-template-columns: 1fr; gap: 14px; }
+    .hero-stats { flex-wrap: wrap; gap: 16px 24px; }
     .form-row { grid-template-columns: 1fr; }
+
+    section { padding: 48px 4vw; }
+    .hero-content { margin-top: 72px; }
+    .hero-stat .num { font-size: 34px; }
+    .hero-cta { flex-direction: column; }
+    .hero-cta .btn-primary,
+    .hero-cta .btn-outline { width: 100%; justify-content: center; padding: 14px 20px; }
+
+    .about-badge { right: 0; bottom: 0; border-radius: 0 0 12px 0; padding: 12px 16px; }
+    .about-badge .big { font-size: 28px; }
+
+    .contact-form { padding: 18px 14px; }
+    .brand-card { padding: 20px 10px; }
+    .product-card { padding: 22px 16px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+  }
+
+  @media (max-width: 420px) {
+    nav { height: 60px; }
+    nav.scrolled { height: 60px; }
+    .nav-brand { font-size: 17px; letter-spacing: 0.08em; }
+    .nav-links.open { top: 60px; max-height: calc(100dvh - 60px); }
+    .hero-stat .num { font-size: 28px; }
+    .brands-grid { gap: 8px; }
+    section { padding: 40px 4vw; }
   }
 </style>
 </head>
@@ -1017,11 +1106,14 @@
   <a href="#" class="nav-logo">
     <span class="nav-brand">YARENLER<span class="nav-brand-sub">TİCARET VE YAPI</span></span>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#hakkimizda" data-tr="Hakkımızda" data-ru="О нас" data-en="About Us">Hakkımızda</a></li>
     <li><a href="#urunler" data-tr="Ürünlerimiz" data-ru="Продукты" data-en="Products">Ürünlerimiz</a></li>
     <li><a href="#iletisim" data-tr="İletişim" data-ru="Контакт" data-en="Contact">İletişim</a></li>
     <li><a href="ekibimiz.html" data-tr="Ekibimiz" data-ru="Наша команда" data-en="Our Team">Ekibimiz</a></li>
+    <li class="nav-mob-sep"></li>
+    <li class="nav-mob-item"><a href="https://wa.me/905353478339?text=Merhabalar" target="_blank" style="color:#25D366;">📱 WhatsApp ile Yazın</a></li>
+    <li class="nav-mob-item"><a href="tel:05353478339" style="color:rgba(255,255,255,0.8);">📞 0535 347 83 39</a></li>
   </ul>
   <div class="nav-right">
     <div class="nav-contact">
@@ -1047,6 +1139,9 @@
         EN
       </button>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -1378,7 +1473,7 @@
     border-color: var(--red);
   }
   @media (max-width: 700px) {
-    #paint-calc { grid-template-columns: 1fr; }
+    #paint-calc { grid-template-columns: 1fr !important; gap: 24px !important; margin-top: 32px !important; }
   }
 </style>
 
@@ -1651,6 +1746,21 @@
 </div>
 
 <script>
+// ─── HAMBURGER ───
+function toggleMenu() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  ham.classList.toggle('open');
+}
+document.querySelectorAll('#navLinks a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+    const ham = document.getElementById('hamburger');
+    if (ham) ham.classList.remove('open');
+  });
+});
+
 // ─── SCROLL ───
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
